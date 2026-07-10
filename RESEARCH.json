@@ -1,0 +1,92 @@
+{
+  "idea": {
+    "name": "FlowGuard",
+    "fingerprint": "automation-workflow-error-handling-self-healing-wrapper",
+    "pitch": "Drop-in error layer that catches, logs, and self-heals Make/n8n workflow failures automatically.",
+    "cluster": "Automation workflow error handling & failure recovery",
+    "target_customer": "Automation consultants and SMB owners running critical business workflows on Make, n8n, or Zapier who cannot afford silent failures",
+    "core_features": [
+      "Webhook-based error interceptor that wraps any existing workflow without code changes",
+      "Categorized failure dashboard: API timeouts, missing fields, rate limits \u2014 each with suggested fix",
+      "Auto-retry logic with configurable backoff for transient failures",
+      "Plain-English Slack/email alert explaining what failed and why in non-technical language",
+      "One-click 'freeze and notify' mode that pauses the workflow and alerts the owner instead of silently failing"
+    ],
+    "pricing_model": "Monthly SaaS subscription tiered by number of monitored workflows",
+    "price_point": "$49/month for up to 10 workflows; $129/month for unlimited; annual discount 20%",
+    "gtm_channel": "r/nocode, r/n8n, r/zapier communities; cold email to Make.com and n8n marketplace consultants; ProductHunt launch",
+    "competitive_landscape": "Make and Zapier have basic error emails but no categorization, retry logic, or plain-English explanations. No standalone tool occupies this niche.",
+    "unfair_advantage": "Wraps existing workflows via webhook \u2014 zero migration friction. Clients keep their current tool; FlowGuard just adds a safety net layer.",
+    "mvp_estimate": "Node.js + Supabase + Resend (email) + Slack API; webhook receiver + retry queue via BullMQ; 3 weeks to MVP",
+    "agentic_automation": "Error events arrive via webhook and are processed by a serverless queue. An LLM classifies each error type and generates a plain-English explanation automatically. Retry jobs are scheduled by BullMQ with no human input. Billing is Stripe. Support is an AI widget. Owner time: ~1 hour/week reviewing edge-case error classifications.",
+    "origin_story": "A viral r/Entrepreneur thread described 'vibecoded automations' failing silently \u2014 missing fields, API timeouts, and rate limits causing complete workflow collapses. Business owners said they had 'no way to know something broke until a client complained.' Consultants who built the workflows had disappeared. Existing tools send a raw JSON error email that non-technical owners cannot interpret. One commenter wrote: 'my entire onboarding flow broke for 3 days and I had no idea.' The pain is acute, recurring, and directly tied to lost revenue.",
+    "automation_playbook": "Workflows send errors to FlowGuard's webhook endpoint. A BullMQ worker classifies the error via OpenAI and triggers retries or alerts. Slack/email notifications are sent via API with zero human involvement. Stripe webhooks manage subscription state. A cron job sends a weekly digest of all errors and resolutions. Owner estimated time: 1 hour/week.",
+    "maintenance_hours_per_week": 1,
+    "keywords": [
+      "zapier error handling",
+      "make.com workflow failure alerts",
+      "n8n error monitoring"
+    ],
+    "supporting_urls": [
+      "https://www.reddit.com/r/Entrepreneur/comments/1u97zle/vibecoded_automations_are_becoming_a_real_problem/"
+    ],
+    "weighted_total": 113,
+    "checklist": {
+      "ten_plus_posts_same_pain": true,
+      "paying_for_inferior_solution": true,
+      "reachable_channel": true,
+      "mvp_under_4_weeks": true,
+      "price_point_high_enough": true,
+      "hair_on_fire": true,
+      "can_presell": true,
+      "fewer_than_3_competitors": true,
+      "low_maintenance_ops": true
+    },
+    "checklist_passed": 9,
+    "momentum": "unknown",
+    "rising_queries": [],
+    "gate_result": "passed"
+  },
+  "pain_points": [
+    {
+      "problem": "Market and competitor analysis requires significant manual time and effort to gather keywords, analyze competing content, and structure findings into actionable insights.",
+      "persona": "Digital marketer, content strategist",
+      "current_workaround": "Manually conducting market research and competitor analysis, then manually structuring findings into article outlines",
+      "frequency": "weekly",
+      "wtp_signal": "Uses paid tools like NeuronWriter; assembling teams of AI agents suggests budget allocation",
+      "url": "https://www.reddit.com/r/DigitalMarketing/comments/1uoojg0/whats_one_marketing_task_you_stopped_doing/",
+      "engagement": 0,
+      "source": "reddit"
+    },
+    {
+      "problem": "Tracking long-running AI agents and monitoring their progress is time-consuming and requires manual oversight to prevent failures.",
+      "persona": "AI workflow developer, automation engineer",
+      "current_workaround": "Manually monitoring agents; using Moyai for tracking",
+      "frequency": "daily",
+      "wtp_signal": "Pays for Moyai and other workflow tools; actively seeking solutions",
+      "url": "https://www.reddit.com/r/vibecoding/comments/1uorrnr/ive_started_treating_some_ai_workflows_as/",
+      "engagement": 0,
+      "source": "reddit"
+    },
+    {
+      "problem": "Automated workflows lack proper error handling, causing complete failures when edge cases occur (missing fields, timeouts, API limits), leaving clients unable to troubleshoot and dependent on the original creator.",
+      "persona": "Automation consultant, business process expert",
+      "current_workaround": "Clients remain dependent on automation experts to fix issues; many experts disappear leaving clients stranded",
+      "frequency": "unknown",
+      "wtp_signal": "Clients are paying for automation services but experiencing costly failures",
+      "url": "https://www.reddit.com/r/Entrepreneur/comments/1u97zle/vibecoded_automations_are_becoming_a_real_problem/",
+      "engagement": 0,
+      "source": "reddit"
+    },
+    {
+      "problem": "Automated workflows are built without proper documentation, modularity, or clear logic explanation, making it impossible for others to understand, maintain, or debug them when issues arise.",
+      "persona": "Business owner, automation client",
+      "current_workaround": "Hiring automation experts who create undocumented, non-modular solutions; stuck with broken workflows when creators disappear",
+      "frequency": "unknown",
+      "wtp_signal": "Paying for automation services but receiving poor quality deliverables",
+      "url": "https://www.reddit.com/r/Entrepreneur/comments/1u97zle/vibecoded_automations_are_becoming_a_real_problem/",
+      "engagement": 0,
+      "source": "reddit"
+    }
+  ]
+}
